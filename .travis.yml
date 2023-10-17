@@ -11,20 +11,15 @@ script:
   - python -m black . --check
   - python -m flake8 --ignore=E303,E501 --max-line-length=88
   - python -m coverage run manage.py test
-env:
-  global:
-    - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
-    - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
-
 
 after_success:
   coveralls
 deploy:
   provider: elasticbeanstalk
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
   region: "us-west-2"
-  app: "assignment1_django"
-  env: "django-project"
-  bucket_name: "elasticbeanstalk-us-west-2-623285752572"
+  app: "swe1-app"
+  env: "test"
+  bucket_name: "elasticbeanstalk-us-west-2-466579977483"
 # You can add additional steps such as deployment configuration if needed.
