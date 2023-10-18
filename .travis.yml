@@ -4,7 +4,9 @@ python:
 before_install:
   - pip install 'urllib3<2.0'
   - sudo apt-get update
-  - sudo apt-get install sqlite3
+  - sudo apt-get install -y sqlite3 libsqlite3-dev
+  # Verify SQLite version
+  - sqlite3 --version
 
 # Define your build steps, for example:
 install:
