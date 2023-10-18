@@ -15,7 +15,7 @@ install:
   - pip install -r requirements.txt  # Install dependencies
 
 script:
-  - python -m unittest discover  # Replace with the command to run your tests or application
+  - python -m manage.py test
   - python -m black . --check
   - python -m flake8 --ignore=E303,E501 --max-line-length=88
   - python -m coverage run --source=mysite,polls manage.py test
