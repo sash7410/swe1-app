@@ -1,6 +1,8 @@
 language: python
+dist: bionic
+os: linux
 python:
-  - "3.11"  # Update to the actual Python 3.11 version when available
+  - "3.11"
 before_install:
   - pip install 'urllib3<2.0'
   - sudo apt-get update
